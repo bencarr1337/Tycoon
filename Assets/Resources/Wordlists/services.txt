@@ -1,0 +1,12 @@
+XNA File share
+Mohican HTTP Server
+DCOM RPC Server
+Branch cache sevice
+Background Transfer Service
+Jinx Application Server
+Printer spooler 
+DHCP Server
+Encrypted File Service
+Sapphire FTP Server
+Flex DNS Server
+Eloquent SSH Server

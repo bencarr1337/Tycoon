@@ -10,23 +10,43 @@ public class rosterScript : MonoBehaviour
     public InputField textField;
     public Transform parentObject;
     public GameObject prefab;
-   
+    public static artist objArtist;
+    public static List<string> nounList { get; set; }
+    public static List<string> adjList { get; set; }
     // Start is called before the first frame update
     void Start()
     {
 
         textField.GetComponent<InputField>().text = "HAI";
 
-        
-        //Instantiate(prefab, parentObject);
+        var nounFile = Resources.Load<TextAsset>("Wordlists/nouns");
+        var nounContent = nounFile.text;
+        var nounWords = nounContent.Split("\n");
+        nounList = new List<string>(nounWords);
 
+        var adjFile = Resources.Load<TextAsset>("Wordlists/adjectives");
+        var adjContent = adjFile.text;
+        var adjWords = adjContent.Split("\n");
+        adjList = new List<string>(adjWords);
+        //Instantiate(prefab, parentObject);
+        var random = new System.Random();
         for (int i = 0; i < 10; i++)
         {
             Vector3 randomPos = new Vector3(0, 0, 0f);
             Instantiate(prefab, randomPos, Quaternion.identity,parentObject);
-           
-         
-         
+            int adjIndex = random.Next(adjList.Count);
+            var adjective = adjList[adjIndex];
+
+
+
+            int nounIndex = random.Next(nounList.Count);
+            var noun = nounList[nounIndex];
+            objArtist = new artist(adjective+ " "+ noun);
+
+            Debug.Log(objArtist.artistName);
+
+
+
         }
 
         Button[] buttons = parentObject.GetComponentsInChildren<Button>();
@@ -50,7 +70,7 @@ public class rosterScript : MonoBehaviour
 
             ListenerHandler(button, x);
 
-            Debug.Log(x.ToString());
+           
 
             a++;
         }
