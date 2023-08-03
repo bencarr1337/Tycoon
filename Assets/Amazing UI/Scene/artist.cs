@@ -11,18 +11,19 @@ public class artist
 
 
  public string artistName;
-
+  public string artistDesc;
 
     void Start()
     {
 
     }
 
-    public artist(string name)
+    public artist(string name, string description)
 
     {
 
         artistName = name;
+        artistDesc = description;
 
 
     }

@@ -6,23 +6,31 @@ using UnityEngine.UI;
 
 public class rosterScript : MonoBehaviour
 {
-
+    public Text textArtistName;
+    public Text textDescription;
     public InputField textField;
     public Transform parentObject;
     public GameObject prefab;
     public static artist objArtist;
     public static List<string> nounList { get; set; }
     public static List<string> adjList { get; set; }
+    public static List<string> descList { get; set; }
+    public static List<artist> artistList = new List<artist>();
     // Start is called before the first frame update
     void Start()
     {
 
-        textField.GetComponent<InputField>().text = "HAI";
+     
 
         var nounFile = Resources.Load<TextAsset>("Wordlists/nouns");
         var nounContent = nounFile.text;
         var nounWords = nounContent.Split("\n");
         nounList = new List<string>(nounWords);
+
+        var descFile = Resources.Load<TextAsset>("Wordlists/artistDesc");
+        var descContent = descFile.text;
+        var descWords = descContent.Split("\n");
+        descList = new List<string>(descWords);
 
         var adjFile = Resources.Load<TextAsset>("Wordlists/adjectives");
         var adjContent = adjFile.text;
@@ -41,19 +49,39 @@ public class rosterScript : MonoBehaviour
 
             int nounIndex = random.Next(nounList.Count);
             var noun = nounList[nounIndex];
-            objArtist = new artist(adjective+ " "+ noun);
 
-            Debug.Log(objArtist.artistName);
+               int artDescIndex = random.Next(descList.Count);
+            var artDesc = descList[artDescIndex];
+
+
+
+            objArtist = new artist(adjective+ " "+ noun, artDesc);
+
+            artistList.Add(objArtist);
 
 
 
         }
 
         Button[] buttons = parentObject.GetComponentsInChildren<Button>();
+        Text[] textBoxes = parentObject.GetComponentsInChildren<Text>();
 
-     
+        int artistIndex = 0;
 
-        int a = 0;
+        foreach (Text textBox in textBoxes)
+        {
+            if (textBox.name== "Text_ArtistName")
+            {
+                textBox.text = artistList[artistIndex].artistName;
+                artistIndex++;
+            }
+          
+             
+        }
+
+        Debug.Log(artistIndex);
+
+            int a = 0;
         int x = 0;
         foreach (Button button in buttons)
         {
@@ -85,7 +113,13 @@ public class rosterScript : MonoBehaviour
 
     private void OnUIButtonClick(Button button, int index)
     {
-        textField.GetComponent<InputField>().text = index.ToString() + " "+ button.name;
+
+        if (button.name == "itemTemplate")
+        {
+            textDescription.text = artistList[index].artistDesc;
+            textArtistName.text = artistList[index].artistName;
+        }
+       
 
        
     }
