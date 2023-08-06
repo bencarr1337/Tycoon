@@ -18,6 +18,7 @@ public class mainMenu : MonoBehaviour
 
    public  void clickNew()
     {
+      
         SceneManager.LoadScene("cityView");
 
     }

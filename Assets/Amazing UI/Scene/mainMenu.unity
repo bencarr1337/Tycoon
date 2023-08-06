@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 114204805453554784, guid: bab07cb9b7dd01547a4ff71abd4c64b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1329179929}
+      objectReference: {fileID: 1329179930}
     - target: {fileID: 114204805453554784, guid: bab07cb9b7dd01547a4ff71abd4c64b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114204805453554784, guid: bab07cb9b7dd01547a4ff71abd4c64b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: mainMenu, Assembly-CSharp
+      value: stateManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 114204805453554784, guid: bab07cb9b7dd01547a4ff71abd4c64b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 1329179927}
   - component: {fileID: 1329179926}
   - component: {fileID: 1329179925}
-  - component: {fileID: 1329179929}
+  - component: {fileID: 1329179930}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -438,7 +438,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1329179929
+--- !u!114 &1329179930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,9 +447,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1329179924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a2113f366881f48beab001769f3327, type: 3}
+  m_Script: {fileID: 11500000, guid: 2854f6860be31d14fab0576365a014ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ratingJson: {fileID: 4900000, guid: 3c3aeba25f50d1747a0d1d4b8c200e57, type: 3}
 --- !u!224 &1382308869 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224955673811224642, guid: bab07cb9b7dd01547a4ff71abd4c64b0, type: 3}
