@@ -1,0 +1,201 @@
+{
+    "artistList": [
+        {
+            "artistName": "Cumbersome\r Iceboxes\r",
+            "artistDesc": "An artist whose powerful vocals and stage presence leave audiences in awe.\r",
+            "artistCost": "72374.56",
+            "artistRating": 1,
+            "artistGenre": "Metal\r",
+            "artistOpinion": "A monumental disaster. Their music is a monument to incompetence, and their artists are a sad joke.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Appropriate\r Chakras\r",
+            "artistDesc": "This group's sonic creations embrace the spaces between notes, inviting listeners to experience the beauty of silence and sound.\r",
+            "artistCost": "586195.03",
+            "artistRating": 6,
+            "artistGenre": "Rock\r",
+            "artistOpinion": "Absolutely terrible. Their music is a complete mess, and their artists lack any real talent.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Burly\r Embedments\r",
+            "artistDesc": "A collective of sonic alchemists who transform everyday sounds into musical gold, creating a symphony from the mundane.\r",
+            "artistCost": "416401.89",
+            "artistRating": 5,
+            "artistGenre": "Punk\r",
+            "artistOpinion": "An average label. They deliver a handful of decent tracks, but the majority don't leave a mark.",
+            "artistOpRate": 4
+        },
+        {
+            "artistName": "Honored\r Frithstools\r",
+            "artistDesc": "A sonic architect who designs intricate structures of sound, playing with dimensions and perspectives.\r",
+            "artistCost": "164734.23",
+            "artistRating": 2,
+            "artistGenre": "Grunge\r",
+            "artistOpinion": "Somewhat promising label. They have potential, but they're still finding their identity.",
+            "artistOpRate": 3
+        },
+        {
+            "artistName": "Wan\r Bergamo\r",
+            "artistDesc": "This artist's sonic journeys are a sequence of dreams, each flowing seamlessly into the next, forming a continuous narrative.\r",
+            "artistCost": "92059.74",
+            "artistRating": 3,
+            "artistGenre": "Trap\r",
+            "artistOpinion": "Absolutely dreadful. Their music lacks creativity, and their artists are forgettable.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Upset\r Carte\r",
+            "artistDesc": "This artist's sonic tapestry is a fusion of cultural influences, weaving threads of tradition into a contemporary musical landscape.\r",
+            "artistCost": "35643.87",
+            "artistRating": 9,
+            "artistGenre": "Drum N Bass\r",
+            "artistOpinion": "Truly abysmal. Their music is an assault on the senses, and their artists are woefully untalented.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Delicious\r Deductibility\r",
+            "artistDesc": "This group's compositions are a sonic representation of emotion, capturing the essence of feelings and moods through sound.\r",
+            "artistCost": "169463.20",
+            "artistRating": 5,
+            "artistGenre": "Dubstep\r",
+            "artistOpinion": "A complete disaster. Their music is a painful experience, and their artists lack any redeeming qualities.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Discrete\r Stooge\r",
+            "artistDesc": "A collective that blends cultural influences from around the world, creating a unique fusion that resonates with a global audience.\r",
+            "artistCost": "80510.88",
+            "artistRating": 1,
+            "artistGenre": "EDM\r",
+            "artistOpinion": "Avoid this label. Their music is a trainwreck, and their artists lack originality.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Ugly\r Nicklaus\r",
+            "artistDesc": "A group that blends electronic beats with live vocals, creating a mesmerizing and immersive auditory experience.\r",
+            "artistCost": "654426.67",
+            "artistRating": 7,
+            "artistGenre": "Techno\r",
+            "artistOpinion": "Absolutely terrible. Their music is grating, and their artists lack any real potential.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Safe\r Critic\r",
+            "artistDesc": "This artist's music is a gateway to the subconscious mind, where thoughts and emotions manifest as intricate sonic patterns.\r",
+            "artistCost": "41421.34",
+            "artistRating": 2,
+            "artistGenre": "Metal\r",
+            "artistOpinion": "Not my cup of tea. Their releases are uninspired, and their artists need more originality.",
+            "artistOpRate": 2
+        },
+        {
+            "artistName": "Ample\r Offensive\r",
+            "artistDesc": "An artist with a gift for storytelling, weaving intricate narratives into their musical creations.\r",
+            "artistCost": "367731.28",
+            "artistRating": 9,
+            "artistGenre": "Trap\r",
+            "artistOpinion": "Avoid this label. Their music is dreadful, and their artists lack originality.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Chubby\r Soredium\r",
+            "artistDesc": "A collective of sonic architects who construct intricate soundscapes, creating auditory structures that captivate the imagination.\r",
+            "artistCost": "507820.26",
+            "artistRating": 6,
+            "artistGenre": "House\r",
+            "artistOpinion": "Avoid this label. Their music is a mess, and their artists are uninspiring.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Utter\r Sanity\r",
+            "artistDesc": "A sonic architect who designs intricate structures of sound, playing with dimensions and perspectives.\r",
+            "artistCost": "42763.29",
+            "artistRating": 1,
+            "artistGenre": "Trap\r",
+            "artistOpinion": "Absolutely disappointing. Their music lacks originality, and their artists are forgettable.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Bossy\r Morbidness\r",
+            "artistDesc": "This artist's sonic palette is a symphony of contrasts, blending different elements to create a harmonious sonic landscape.\r",
+            "artistCost": "713471.13",
+            "artistRating": 10,
+            "artistGenre": "Pop\r",
+            "artistOpinion": "I wouldn't recommend it. Their music lacks coherence, and their artists seem lost.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Big\r Icehouse\r",
+            "artistDesc": "An artist whose music is a reflection of their personal evolution, from past struggles to present triumphs.\r",
+            "artistCost": "336808.46",
+            "artistRating": 4,
+            "artistGenre": "Dubstep\r",
+            "artistOpinion": "Average label. They've got a few good tracks, but overall lacks consistency.",
+            "artistOpRate": 4
+        },
+        {
+            "artistName": "Noisy\r Pianissimo\r",
+            "artistDesc": "An artist who paints with sound, using a diverse palette of tones and textures to create intricate auditory landscapes.\r",
+            "artistCost": "882781.74",
+            "artistRating": 10,
+            "artistGenre": "Grunge\r",
+            "artistOpinion": "Avoid at all costs. Their music is a complete disaster, and their artists have no potential.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Pitiful\r Man-hour\r",
+            "artistDesc": "A group of sonic philosophers who explore profound concepts through their music, inviting listeners to reflect on the mysteries of existence.\r",
+            "artistCost": "278875.33",
+            "artistRating": 9,
+            "artistGenre": "Trap\r",
+            "artistOpinion": "Complete disappointment. Their music lacks direction, and their artists are forgettable.",
+            "artistOpRate": 1
+        }
+    ],
+    "artistListOwned": [
+        {
+            "artistName": "Complicated\r Pip\r",
+            "artistDesc": "A group of sonic philosophers, this collective uses music as a means of exploring profound questions about existence and reality.\r",
+            "artistCost": "101349.00",
+            "artistRating": 1,
+            "artistGenre": "Trap\r",
+            "artistOpinion": "Truly abysmal. Their music is an assault on the senses, and their artists are woefully untalented.",
+            "artistOpRate": 1
+        },
+        {
+            "artistName": "Concrete\r Counterplot\r",
+            "artistDesc": "This artist's sonic experiments yield compositions that challenge the conventional structures of rhythm and melody.\r",
+            "artistCost": "167581.34",
+            "artistRating": 3,
+            "artistGenre": "Metal\r",
+            "artistOpinion": "Promising label. They have moments of brilliance, but they need more consistent hits.",
+            "artistOpRate": 5
+        },
+        {
+            "artistName": "Pointless\r Wheelie\r",
+            "artistDesc": "A sonic architect who constructs intricate soundscapes, building worlds of audio that are both captivating and immersive.\r",
+            "artistCost": "15580.28",
+            "artistRating": 7,
+            "artistGenre": "Techno\r",
+            "artistOpinion": "Mediocre at best. Their music is passable, but lacks innovation and creativity.",
+            "artistOpRate": 5
+        }
+    ],
+    "artistListRefused": [
+        {
+            "artistName": "Cumbersome\r Iceboxes\r",
+            "artistDesc": "An artist whose powerful vocals and stage presence leave audiences in awe.\r",
+            "artistCost": "72374.56",
+            "artistRating": 1,
+            "artistGenre": "Metal\r",
+            "artistOpinion": "A monumental disaster. Their music is a monument to incompetence, and their artists are a sad joke.",
+            "artistOpRate": 1
+        }
+    ],
+    "moneyOnHand": "215489.70",
+    "isNewGame": false,
+    "reputation": 1,
+    "labelName": "sadad"
+}

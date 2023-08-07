@@ -12,11 +12,8 @@ public class labelRating
     //these variables are case sensitive and must match the strings "firstName" and "lastName" in the JSON.
     public string opinion;
     public int rating;
-  
- 
 
 }
-
 
 [System.Serializable]
 public class RatingList
@@ -24,40 +21,175 @@ public class RatingList
     public labelRating[] opinions;
 }
 
+[System.Serializable]
+public class serializedGameState
+{
+    public List<artist> artistList = new List<artist>();
+    public List<artist> artistListOwned = new List<artist>();
+    public List<artist> artistListRefused = new List<artist>();
+
+    public string moneyOnHand;
+    public bool isNewGame;
+    public int reputation;
+    public string labelName;
+}
+
+[System.Serializable]
+
 public class stateManager : MonoBehaviour
 {
-
+    [SerializeField] public serializedGameState serializedGame;
+    [SerializeField] public serializedGameState serializedGameSave;
     public static artist objArtist;
-    public static List<string> nounList { get; set; }
-    public static List<string> adjList { get; set; }
-    public static List<string> descList { get; set; }
-    public static List<string> genList { get; set; }
+    public static List<string> nounList
+    {
+        get;
+        set;
+    }
+    public static List<string> adjList
+    {
+        get;
+        set;
+    }
+    public static List<string> descList
+    {
+        get;
+        set;
+    }
+    public static List<string> genList
+    {
+        get;
+        set;
+    }
     public static List<artist> artistList = new List<artist>();
     public static List<artist> artistListOwned = new List<artist>();
+    public static List<artist> artistListRefused = new List<artist>();
     public static decimal moneyOnHand;
     public static bool isNewGame;
     public TextAsset ratingJson;
     public static RatingList ratingList;
     public static int reputation;
-    // Start is called before the first frame update
-    void Start()
+    public static string labelName;
+    public static bool isLoadGame;
+    public static bool endWeekModalShowing = false;
+
+    public void loadGame()
     {
 
-      
+        serializedGame = new serializedGameState();
+
+        string fileContents = File.ReadAllText("Assets/Resources/saveGame.json");
+
+        serializedGame = JsonUtility.FromJson<serializedGameState>(fileContents);
+
+       labelName=serializedGame.labelName;
+       isNewGame = false;
+       moneyOnHand  = decimal.Parse(serializedGame.moneyOnHand);
+       reputation = serializedGame.reputation;
+
+        int i;
+
+        for (i = 0; i < serializedGame.artistList.Count; i++)
+        {
+
+            artistList.Add(serializedGame.artistList[i]);
+
+        }
+
+        for (i = 0; i < serializedGame.artistListOwned.Count; i++)
+        {
+
+           artistListOwned.Add(serializedGame.artistListOwned[i]);
+
+        }
+
+        for (i = 0; i < serializedGame.artistListRefused.Count; i++)
+        {
+
+          artistListRefused.Add(serializedGame.artistListRefused[i]);
+
+        }
+
+        isLoadGame = false;
 
 
+    }
+
+    public void saveGame()
+    {
+
+        serializedGameSave = new serializedGameState();
+
+        int i;
+
+        for (i = 0; i < artistList.Count; i++)
+        {
+
+            serializedGameSave.artistList.Add(artistList[i]);
+
+        }
+
+        for (i = 0; i < artistListOwned.Count; i++)
+        {
+
+            serializedGameSave.artistListOwned.Add(artistListOwned[i]);
+
+        }
+
+        for (i = 0; i < artistListRefused.Count; i++)
+        {
+
+            serializedGameSave.artistListRefused.Add(artistListRefused[i]);
+
+        }
+
+        serializedGameSave.isNewGame = false;
+        serializedGameSave.moneyOnHand = moneyOnHand.ToString();
+        serializedGameSave.reputation = reputation;
+        serializedGameSave.labelName = labelName;
+
+       
+        
+
+        string json = JsonUtility.ToJson(serializedGameSave, true);
+
+        string path = "Assets/Resources/saveGame.json";
+
+        StreamWriter writer = new StreamWriter(path, false);
+        writer.WriteLine(json);
+        writer.Close();
 
     }
 
 
 
+
+    void Start()
+    {
+
+     
+        if (isNewGame == true)
+        {
+
+            startNewGame();
+        }
+
+        if (isLoadGame == true)
+        {
+
+            loadGame();
+        }
+
+    }
+
     public void startNewGame()
     {
 
+        isNewGame = false;
 
-        moneyOnHand = 500000m;
+        moneyOnHand = 500000.32m;
 
-        reputation = 10;
+        reputation = 1;
 
         var nounFile = Resources.Load<TextAsset>("Wordlists/nouns");
         var nounContent = nounFile.text;
@@ -81,20 +213,11 @@ public class stateManager : MonoBehaviour
 
         var random = new System.Random();
 
-
-
-
-       
-
-
-
         for (int i = 0; i < 20; i++)
         {
 
             int adjIndex = random.Next(adjList.Count);
             var adjective = adjList[adjIndex];
-
-
 
             int nounIndex = random.Next(nounList.Count);
             var noun = nounList[nounIndex];
@@ -108,26 +231,20 @@ public class stateManager : MonoBehaviour
             adjective = char.ToUpper(adjective[0]) + adjective.Substring(1);
             noun = char.ToUpper(noun[0]) + noun.Substring(1);
 
-
-           
-
             int artistRatingNum = random.Next(1, 11);
-
-
 
             var result = getArtistOpinion(artistRatingNum);
             string artistOpinion = result.Item2;
             int artistOpRate = result.Item1;
 
+            decimal artistCost = generatePrice(artistRatingNum);
 
+            string strArtistCost = artistCost.ToString();
 
-
-            objArtist = new artist(adjective + " " + noun, artDesc, artGen, artistOpinion, artistRatingNum, artistOpRate);
+            objArtist = new artist(adjective + " " + noun, artDesc, artGen, artistOpinion, artistRatingNum, artistOpRate, strArtistCost);
 
             artistList.Add(objArtist);
             // Debug.Log(adjective + " " + noun + " " + artDesc);
-
-
 
         }
 
@@ -135,8 +252,35 @@ public class stateManager : MonoBehaviour
 
 
 
+    public decimal generatePrice(int artistRating)
+    {
+        var random = new System.Random();
 
-    public (int,string) getArtistOpinion(int artistRatingNum)
+
+        decimal randomValue = (decimal)random.NextDouble();
+
+        // Calculate the range between 5000 and 1000000 based on the rating
+        decimal minValue = 5000;
+        decimal maxValue = 1000000;
+        decimal range = maxValue - minValue;
+
+        // Calculate the adjusted value based on the rating and random value
+        decimal artistCost = minValue + (randomValue * range) * (decimal)artistRating / 10;
+
+
+        // Adjust the random value based on the rating
+
+
+        decimal roundedArtistCost = Math.Round(artistCost, 2);
+
+
+
+
+
+        return roundedArtistCost;
+    }
+
+    public (int, string) getArtistOpinion(int artistRatingNum)
     {
 
         var random = new System.Random();
@@ -144,14 +288,10 @@ public class stateManager : MonoBehaviour
 
         string fileContents = File.ReadAllText("Assets/Resources/Wordlists/labelOpinion.json");
 
-    
-
         ratingList = JsonUtility.FromJson<RatingList>(fileContents);
-
 
         int yourRating = reputation; // Your rating (between 1 and 10)
         int otherPersonRating = artistRatingNum; // Other person's rating (between 1 and 10)
-
 
         int randomNumber = 0;
 
@@ -166,9 +306,10 @@ public class stateManager : MonoBehaviour
 
             int randNum = random.Next(1, 101);
 
-            if (randNum <= difference) { 
+            if (randNum <= difference)
+            {
 
-                randomNumber = random.Next(Math.Max(1, reputation), Math.Min(10, reputation + 3));
+                randomNumber = random.Next(Math.Max(1, reputation), Math.Min(10, reputation + 5));
 
             }
             else
@@ -176,113 +317,70 @@ public class stateManager : MonoBehaviour
                 randomNumber = random.Next(Math.Max(1, reputation - 3), Math.Min(10, reputation));
 
             }
-         }
+        }
 
         if (reputation < artistRatingNum)
         {
 
-            difference = artistRatingNum-reputation;
+            difference = artistRatingNum - reputation;
 
             difference = difference * 10;
 
             int randNum = random.Next(1, 101);
 
-            if (randNum  <= difference)
+            if (randNum <= difference)
             {
 
-                randomNumber = random.Next(Math.Max(1, reputation-3), Math.Min(10, reputation));
-                Debug.Log(reputation+" "+ artistRatingNum + " "+ difference + " "+ randNum + " " + randomNumber);
+                randomNumber = random.Next(Math.Max(1, reputation - 3), Math.Min(10, reputation));
+                //Debug.Log(reputation+" "+ artistRatingNum + " "+ difference + " "+ randNum + " " + randomNumber);
 
             }
             else
             {
-                randomNumber = random.Next(Math.Max(1, reputation), Math.Min(10, reputation+3));
-                Debug.Log(reputation + " " + artistRatingNum + " " +  difference + " " + randNum + " " + randomNumber);
+                randomNumber = random.Next(Math.Max(1, reputation), Math.Min(10, reputation + 5));
+                // Debug.Log(reputation + " " + artistRatingNum + " " +  difference + " " + randNum + " " + randomNumber);
 
             }
         }
-
-        /* if (reputation < artistRatingNum)
-         {
-
-             difference = artistRatingNum- reputation;
-
-
-             randomNumber = random.Next(Math.Max(1, reputation - difference), Math.Min(10, reputation + 3));
-
-             if (randomNumber < 1)
-             {
-                 randomNumber = 1;
-             }
-
-             if (randomNumber > 10)
-             {
-
-                 randomNumber = 10;
-             }
-
-         }*/
-
-
-
-
-
-
 
         int ratingIndex = random.Next(ratingList.opinions.Length);
 
         bool loopDone = false;
-        string artistOp="";
+        string artistOp = "";
         int artistRating = 0;
 
-        while (loopDone == false) { 
+        while (loopDone == false)
+        {
 
-             ratingIndex = random.Next(ratingList.opinions.Length);
+            ratingIndex = random.Next(ratingList.opinions.Length);
 
-             artistOp = ratingList.opinions[ratingIndex].opinion;
-             artistRating = ratingList.opinions[ratingIndex].rating;
+            artistOp = ratingList.opinions[ratingIndex].opinion;
+            artistRating = ratingList.opinions[ratingIndex].rating;
 
-            /*if (artistRating >= lowerBound && artistRating <= upperBound)
-            {
-                //Debug.Log(artistRating + " " + artistOp);
-                Debug.Log(artistRatingNum + " " + lowerBound.ToString() + " " + upperBound.ToString()+ " "+ artistRating);
-                loopDone = true;
-                
-
-            }*/
-
-            if (artistRating== randomNumber)
+            if (artistRating == randomNumber)
             {
 
-                //Debug.Log(reputation.ToString()+ " "+artistRatingNum + " "  +artistRating);
                 loopDone = true;
             }
 
-
         }
 
-
-        return (artistRating,artistOp);
+        return (artistRating, artistOp);
 
     }
-
 
     static double Sigmoid(double x)
     {
         return 1 / (1 + Math.Exp(-x));
     }
 
-
     public void clickNew()
     {
-        isNewGame = true;
-        SceneManager.LoadScene("cityView");
-        startNewGame();
 
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
