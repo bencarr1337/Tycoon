@@ -73,6 +73,13 @@ public class stateManager : MonoBehaviour
     public static bool isLoadGame;
     public static bool endWeekModalShowing = false;
 
+    public void exitToMainMenu()
+    {
+
+        SceneManager.LoadScene("mainMenu");
+
+    }
+
     public void loadGame()
     {
 

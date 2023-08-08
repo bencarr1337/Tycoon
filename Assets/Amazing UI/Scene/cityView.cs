@@ -58,5 +58,23 @@ public class cityView : MonoBehaviour
             SceneManager.LoadScene("officeScene");
 
         }
+
+        if (gameObject.name == "buildingBank" && stateManager.endWeekModalShowing == false)
+        {
+            Debug.Log(gameObject.name);
+            SceneManager.LoadScene("bankScene");
+
+
+        }
+        Debug.Log(gameObject.name);
+        if (gameObject.name == "buildingStudio" && stateManager.endWeekModalShowing == false)
+        {
+           
+            SceneManager.LoadScene("studioScene");
+
+
+        }
+
+
     }
 }

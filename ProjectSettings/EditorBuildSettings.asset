@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Amazing UI/Scene/officeScene.unity
     guid: 12b65b25e725e734580cc48c712f1921
+  - enabled: 1
+    path: Assets/Amazing UI/Scene/bankScene.unity
+    guid: a43d7ae5527808c4590dece5c8a23dcd
+  - enabled: 1
+    path: Assets/Amazing UI/Scene/studioScene.unity
+    guid: 7605fead2c452914eb278b822967dbe9
   m_configObjects: {}
