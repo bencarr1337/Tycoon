@@ -22,6 +22,8 @@ public class mainMenu : MonoBehaviour
 
    public  void clickNew()
     {
+
+
         GameObject.Find("newGameModal").transform.localScale = new Vector3(1, 1, 1);
         
 
@@ -47,6 +49,7 @@ public class mainMenu : MonoBehaviour
         }
         else
         {
+            stateManager.isLoadGame = false;
             stateManager.labelName = textLabelName.text;
             stateManager.isNewGame = true;
             SceneManager.LoadScene("cityView");

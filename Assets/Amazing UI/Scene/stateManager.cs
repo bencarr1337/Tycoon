@@ -21,6 +21,50 @@ public class RatingList
     public labelRating[] opinions;
 }
 
+
+[System.Serializable]
+public class techResearch
+{
+    //these variables are case sensitive and must match the strings "firstName" and "lastName" in the JSON.
+    public string name;
+    public string description;
+    public int[] applicable_genres;
+    public string category;
+
+
+
+}
+
+
+
+
+[System.Serializable]
+public class techResearchList
+{
+    public techResearch[] techniques;
+}
+
+
+
+[System.Serializable]
+public class genre
+{
+    //these variables are case sensitive and must match the strings "firstName" and "lastName" in the JSON.
+    public int id;
+    public string name;
+
+
+
+}
+
+[System.Serializable]
+public class genreList
+{
+    public genre[] genres;
+}
+
+
+
 [System.Serializable]
 public class serializedGameState
 {
@@ -61,13 +105,20 @@ public class stateManager : MonoBehaviour
         get;
         set;
     }
+
+
+ 
+
     public static List<artist> artistList = new List<artist>();
     public static List<artist> artistListOwned = new List<artist>();
     public static List<artist> artistListRefused = new List<artist>();
+    public static List<techResearchList> techListOwned = new List<techResearchList>();
     public static decimal moneyOnHand;
     public static bool isNewGame;
     public TextAsset ratingJson;
     public static RatingList ratingList;
+    public static techResearchList techList;
+    public static genreList GenreList;
     public static int reputation;
     public static string labelName;
     public static bool isLoadGame;
@@ -83,6 +134,36 @@ public class stateManager : MonoBehaviour
     public void loadGame()
     {
 
+  
+
+
+
+        techList = new techResearchList();
+
+        string fileContentsTech = File.ReadAllText("Assets/Resources/Wordlists/technology.json");
+
+        techList = JsonUtility.FromJson<techResearchList>(fileContentsTech);
+
+        GenreList = new genreList();
+
+        string fileContentGenre = File.ReadAllText("Assets/Resources/Wordlists/genreList.json");
+
+        GenreList = JsonUtility.FromJson<genreList>(fileContentGenre);
+
+        genList = new List<string>();
+        for (int a = 0; a < GenreList.genres.Length; a++)
+        {
+
+
+       
+
+            genList.Add(GenreList.genres[a].name);
+
+            Debug.Log(genList[a]);
+        }
+
+
+
         serializedGame = new serializedGameState();
 
         string fileContents = File.ReadAllText("Assets/Resources/saveGame.json");
@@ -95,6 +176,10 @@ public class stateManager : MonoBehaviour
        reputation = serializedGame.reputation;
 
         int i;
+
+        artistList.Clear();
+        artistListOwned.Clear();
+        artistListRefused.Clear();
 
         for (i = 0; i < serializedGame.artistList.Count; i++)
         {
@@ -213,10 +298,49 @@ public class stateManager : MonoBehaviour
         var adjWords = adjContent.Split("\n");
         adjList = new List<string>(adjWords);
 
-        var genFile = Resources.Load<TextAsset>("Wordlists/genreList");
-        var genContent = genFile.text;
-        var genWords = genContent.Split("\n");
-        genList = new List<string>(genWords);
+
+        artistList.Clear();
+        artistListOwned.Clear();
+        artistListRefused.Clear();
+
+
+        GenreList = new genreList();
+
+        string fileContentGenre = File.ReadAllText("Assets/Resources/Wordlists/genreList.json");
+
+        GenreList = JsonUtility.FromJson<genreList>(fileContentGenre);
+
+        techList = new techResearchList();
+
+        string fileContentsTech = File.ReadAllText("Assets/Resources/Wordlists/technology.json");
+
+        techList = JsonUtility.FromJson<techResearchList>(fileContentsTech);
+
+       
+
+
+        genList = new List<string>();
+        for (int a = 0; a < GenreList.genres.Length; a++)
+        {
+
+
+
+
+            genList.Add(GenreList.genres[a].name);
+
+            Debug.Log(genList[a]);
+        }
+
+
+        for (int i = 0; i < GenreList.genres.Length; i++)
+        {
+
+
+        
+
+            genList.Add(GenreList.genres[i].name);
+        }
+
 
         var random = new System.Random();
 
@@ -232,8 +356,10 @@ public class stateManager : MonoBehaviour
             int artDescIndex = random.Next(descList.Count);
             var artDesc = descList[artDescIndex];
 
-            int artGenIndex = random.Next(genList.Count);
-            var artGen = genList[artGenIndex];
+            int artGenIndex = random.Next(GenreList.genres.Length);
+            var artGen = GenreList.genres[artGenIndex].name;
+            var artGenID = GenreList.genres[artGenIndex].id;
+           
 
             adjective = char.ToUpper(adjective[0]) + adjective.Substring(1);
             noun = char.ToUpper(noun[0]) + noun.Substring(1);
@@ -248,7 +374,7 @@ public class stateManager : MonoBehaviour
 
             string strArtistCost = artistCost.ToString();
 
-            objArtist = new artist(adjective + " " + noun, artDesc, artGen, artistOpinion, artistRatingNum, artistOpRate, strArtistCost);
+            objArtist = new artist(adjective + " " + noun, artDesc, artGen, artistOpinion, artistRatingNum, artistOpRate, strArtistCost, artGenID);
 
             artistList.Add(objArtist);
             // Debug.Log(adjective + " " + noun + " " + artDesc);

@@ -1,0 +1,72 @@
+{
+  "genres": [
+    {
+      "id": 1,
+      "name": "Drum N Bass"
+    },
+    {
+      "id": 2,
+      "name": "Rock"
+    },
+    {
+      "id": 3,
+      "name": "Pop Punk"
+    },
+    {
+      "id": 4,
+      "name": "Punk"
+    },
+    {
+      "id": 5,
+      "name": "EDM"
+    },
+    {
+      "id": 6,
+      "name": "Pop"
+    },
+    {
+      "id": 7,
+      "name": "Hip-Hop"
+    },
+    {
+      "id": 8,
+      "name": "Jazz"
+    },
+    {
+      "id": 9,
+      "name": "Techno"
+    },
+    {
+      "id": 10,
+      "name": "House"
+    },
+    {
+      "id": 11,
+      "name": "Reggae"
+    },
+    {
+      "id": 12,
+      "name": "Metal"
+    },
+    {
+      "id": 13,
+      "name": "Dubstep"
+    },
+    {
+      "id": 14,
+      "name": "Grunge"
+    },
+    {
+      "id": 15,
+      "name": "Trap"
+    },
+    {
+      "id": 16,
+      "name": "Country"
+    },
+    {
+      "id": 17,
+      "name": "Indy"
+    }
+  ]
+}

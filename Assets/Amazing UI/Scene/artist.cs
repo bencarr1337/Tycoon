@@ -17,12 +17,13 @@ public class artist
     public string artistGenre;
     public string artistOpinion;
     public int artistOpRate;
+    public int artistGenreID;
     void Start()
     {
 
     }
 
-    public artist(string name, string description, string genre, string opinion, int rating, int opRate, string aCost)
+    public artist(string name, string description, string genre, string opinion, int rating, int opRate, string aCost, int genreID)
 
     {
 
@@ -33,6 +34,7 @@ public class artist
         artistGenre = genre;
         artistOpinion = opinion;
         artistOpRate = opRate;
+        artistGenreID = genreID;
       
 
     }

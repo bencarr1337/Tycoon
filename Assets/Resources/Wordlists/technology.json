@@ -1,0 +1,178 @@
+{
+  "techniques": [
+    {
+      "name": "Better amplifiers",
+      "description": "Using high-quality amplifiers can enhance the tone and clarity of instruments, resulting in a more detailed and powerful sound. Amplifiers can shape the overall character of the sound and add warmth or brightness.",
+      "applicable_genres": [ 2, 3, 4, 11, 12, 14, 16, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "Distortion Pedals",
+      "description": "Distortion pedals add harmonic content and grit to instrument sounds, creating a more aggressive and edgy tone. They are often used to add intensity and drive to guitars and synths.",
+      "applicable_genres": [ 2, 3, 4, 12, 13, 14, 15 ],
+      "category": "technology"
+    },
+    {
+      "name": "Analog Synthesisers",
+      "description": "Analog synthesizers use analog circuitry to generate and manipulate sound waves, providing a unique and organic sonic palette. They can add warmth, depth, and intricate modulation to a track.",
+      "applicable_genres": [ 1, 5, 8, 9, 10, 13 ],
+      "category": "technology"
+    },
+    {
+      "name": "Cutting edge DAW",
+      "description": "A cutting-edge Digital Audio Workstation (DAW) offers advanced features for precise audio manipulation, creative sound design, and efficient workflow. It can lead to more polished and intricate productions.",
+      "applicable_genres": [ 1, 2, 5, 6, 7, 9, 10, 13, 15, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "VST Syntheisers",
+      "description": "Virtual Studio Technology (VST) synthesizers provide a wide variety of sound presets and modulation options. They can greatly expand the sonic possibilities of a track and offer creative sound design tools.",
+      "applicable_genres": [ 1, 5, 8, 9, 10, 13 ],
+      "category": "technology"
+    },
+    {
+      "name": "Professional Microphones",
+      "description": "Professional microphones capture audio with high fidelity and accuracy, resulting in clear and detailed recordings. They enhance the quality of vocals and instruments, contributing to a professional mix.",
+      "applicable_genres": [ 2, 3, 4, 6, 7, 8, 11, 12, 16, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "Sampling",
+      "description": "Sampling involves integrating pre-recorded sounds into a track. It allows for unique textures and adds realism by incorporating real-world sounds. Sampling can add depth and interest to compositions.",
+      "applicable_genres": [ 1, 5, 6, 7, 9, 11, 13, 15 ],
+      "category": "technique"
+    },
+    {
+      "name": "Autotune",
+      "description": "Autotune corrects pitch inaccuracies in vocal recordings, ensuring precise intonation. It helps to achieve polished and professional-sounding vocal performances.",
+      "applicable_genres": [ 6, 7 ],
+      "category": "technology"
+    },
+    {
+      "name": "Delay",
+      "description": "Delay creates echoes by repeating and delaying the sound. It can add spatial depth, create a sense of space, and contribute to an immersive audio experience.",
+      "applicable_genres": [ 1, 2, 5, 9, 10, 13, 15 ],
+      "category": "technology"
+    },
+    {
+      "name": "Reverb",
+      "description": "Reverb simulates the acoustic environment of a space. It adds depth, dimension, and realism to sounds, making them feel like they exist within a physical space.",
+      "applicable_genres": [ 1, 2, 3, 5, 6, 8, 9, 11, 13, 14, 15, 16 ],
+      "category": "technology"
+    },
+    {
+      "name": "Better Bass Guitars",
+      "description": "Using high-quality bass guitars enhances the low-end foundation of a track, providing a tight and powerful bassline that can drive the rhythm and add depth to the mix.",
+      "applicable_genres": [ 1, 2, 3, 4, 11, 12, 14, 16, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "Better Electric Guitars",
+      "description": "Upgrading to better electric guitars results in improved tone, sustain, and dynamics. They can provide more expressive and versatile guitar performances.",
+      "applicable_genres": [ 1, 2, 3, 4, 12, 13, 14, 15, 16 ],
+      "category": "technology"
+    },
+    {
+      "name": "Better Acoustic Guitars",
+      "description": "High-quality acoustic guitars offer rich, resonant tones and improved playability. They can add warmth and character to a track, especially in acoustic and folk genres.",
+      "applicable_genres": [ 2, 3, 6, 8, 11, 14, 16, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "Midi",
+      "description": "MIDI allows precise control over musical elements. It enables creative manipulation of virtual instruments, automation, and arrangement changes, leading to intricate and dynamic compositions.",
+      "applicable_genres": [ 1, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16 ],
+      "category": "technology"
+    },
+    {
+      "name": "Audio Interface",
+      "description": "An audio interface ensures high-quality conversion of audio signals. It enhances the clarity of recordings, reduces latency, and provides multiple input/output options.",
+      "applicable_genres": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "High Intensity Drops",
+      "description": "High-intensity drops create moments of excitement and impact in a track. They can elevate energy levels and engage the listener, enhancing the overall emotional experience.",
+      "applicable_genres": [ 1, 2, 5, 7, 9, 10, 13, 15, 16 ],
+      "category": "technique"
+    },
+    {
+      "name": "Ambient Breakdowns",
+      "description": "Ambient breakdowns provide contrast and emotional depth by reducing intensity and introducing atmospheric sounds. They create a breathing space before building up again.",
+      "applicable_genres": [ 1, 3, 6, 8, 9, 10, 11, 14, 16, 17 ],
+      "category": "technique"
+    },
+    {
+      "name": "Saturation",
+      "description": "Saturation adds harmonic distortion to sounds, imparting warmth, character, and a vintage feel. It can contribute to a rich and lively mix with added depth and texture.",
+      "applicable_genres": [ 1, 5, 7, 9, 10, 13, 14, 15 ],
+      "category": "technology"
+    },
+    {
+      "name": "Compression",
+      "description": "Compression balances the dynamic range of sounds, ensuring consistent levels. It enhances clarity, impact, and presence, making tracks sound polished and well-controlled.",
+      "applicable_genres": [ 1, 2, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17 ],
+      "category": "technology"
+    },
+    {
+      "name": "Sidechain",
+      "description": "Sidechain compression creates rhythmic pumping effects by dynamically reducing the volume of one sound in response to another. It's commonly used in electronic music to enhance groove and rhythm.",
+      "applicable_genres": [ 1, 5, 9, 10, 13, 15 ],
+      "category": "technology"
+    },
+    {
+      "name": "Heavy Drum Samples",
+      "description": "Using heavy drum samples can add power and impact to rhythm sections. They can create intense and driving beats, enhancing the energy of the track.",
+      "applicable_genres": [ 1, 2, 5, 7, 9, 10, 11, 12, 13, 15 ],
+      "category": "technology"
+    },
+    {
+      "name": "Better Mastering Techniques",
+      "description": "Improved mastering techniques enhance the final mix's clarity, balance, and overall sound quality. They ensure that the track translates well across various playback systems.",
+      "applicable_genres": [ 1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17 ],
+      "category": "technique"
+    },
+    {
+      "name": "Better Melodies",
+      "description": "Crafting better melodies results in memorable and emotionally resonant compositions. Strong melodies can captivate listeners and make the track more enjoyable and memorable.",
+      "applicable_genres": [ 1, 2, 3, 4, 6, 7, 8, 11, 14, 16, 17 ],
+      "category": "technique"
+    },
+    {
+      "name": "Better Chord Progressions",
+      "description": "Enhancing chord progressions can add complexity and depth to a track. Well-crafted progressions can evoke different moods and emotions, enhancing the overall musical experience.",
+      "applicable_genres": [ 1, 2, 3, 4, 6, 7, 8, 9, 11, 14, 16, 17 ],
+      "category": "technique"
+    },
+    {
+      "name": "DIY Sound Aesthetic",
+      "description": "Developing a unique DIY sound aesthetic can set your music apart. It involves using unconventional recording techniques, found sounds, and creative processing to add character and originality.",
+      "applicable_genres": [ 4, 15 ],
+      "category": "technique"
+    },
+    {
+      "name": "Wobbly Basslines",
+      "description": "Wobbly basslines, often created using modulation techniques like LFOs, add movement and groove to a track. They can contribute to a sense of energy and danceability.",
+      "applicable_genres": [ 1, 5, 9, 10, 13, 15 ],
+      "category": "technique"
+    },
+    {
+      "name": "Low Frequency Oscillator",
+      "description": "A Low Frequency Oscillator (LFO) modulates parameters over time, creating evolving and rhythmic effects. It can add movement, texture, and interest to sounds.",
+      "applicable_genres": [ 1, 5, 9, 10, 13, 15 ],
+      "category": "technology"
+    },
+    {
+      "name": "Organic Drums",
+      "description": "Using organic drum sounds, recorded from real-world sources, can add a natural and authentic feel to the rhythm. They can create a more human and emotional connection in the music.",
+      "applicable_genres": [ 2, 3, 6, 8, 11, 14, 16, 17 ],
+      "category": "technique"
+    },
+    {
+      "name": "Better Drum Patterns",
+      "description": "Crafting intricate and creative drum patterns enhances the groove and rhythm of a track. Well-designed patterns can make the rhythm section more engaging and dynamic.",
+      "applicable_genres": [ 1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+      "category": "technique"
+    }
+  ]
+}
