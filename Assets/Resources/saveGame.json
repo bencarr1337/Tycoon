@@ -7,7 +7,8 @@
             "artistRating": 1,
             "artistGenre": "Metal\r",
             "artistOpinion": "A monumental disaster. Their music is a monument to incompetence, and their artists are a sad joke.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Appropriate\r Chakras\r",
@@ -16,7 +17,8 @@
             "artistRating": 6,
             "artistGenre": "Rock\r",
             "artistOpinion": "Absolutely terrible. Their music is a complete mess, and their artists lack any real talent.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Burly\r Embedments\r",
@@ -25,7 +27,8 @@
             "artistRating": 5,
             "artistGenre": "Punk\r",
             "artistOpinion": "An average label. They deliver a handful of decent tracks, but the majority don't leave a mark.",
-            "artistOpRate": 4
+            "artistOpRate": 4,
+            "artistGenreID": 0
         },
         {
             "artistName": "Honored\r Frithstools\r",
@@ -34,7 +37,8 @@
             "artistRating": 2,
             "artistGenre": "Grunge\r",
             "artistOpinion": "Somewhat promising label. They have potential, but they're still finding their identity.",
-            "artistOpRate": 3
+            "artistOpRate": 3,
+            "artistGenreID": 0
         },
         {
             "artistName": "Wan\r Bergamo\r",
@@ -43,7 +47,8 @@
             "artistRating": 3,
             "artistGenre": "Trap\r",
             "artistOpinion": "Absolutely dreadful. Their music lacks creativity, and their artists are forgettable.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Upset\r Carte\r",
@@ -52,7 +57,8 @@
             "artistRating": 9,
             "artistGenre": "Drum N Bass\r",
             "artistOpinion": "Truly abysmal. Their music is an assault on the senses, and their artists are woefully untalented.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Delicious\r Deductibility\r",
@@ -61,7 +67,8 @@
             "artistRating": 5,
             "artistGenre": "Dubstep\r",
             "artistOpinion": "A complete disaster. Their music is a painful experience, and their artists lack any redeeming qualities.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Discrete\r Stooge\r",
@@ -70,7 +77,8 @@
             "artistRating": 1,
             "artistGenre": "EDM\r",
             "artistOpinion": "Avoid this label. Their music is a trainwreck, and their artists lack originality.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Ugly\r Nicklaus\r",
@@ -79,7 +87,8 @@
             "artistRating": 7,
             "artistGenre": "Techno\r",
             "artistOpinion": "Absolutely terrible. Their music is grating, and their artists lack any real potential.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Safe\r Critic\r",
@@ -88,7 +97,8 @@
             "artistRating": 2,
             "artistGenre": "Metal\r",
             "artistOpinion": "Not my cup of tea. Their releases are uninspired, and their artists need more originality.",
-            "artistOpRate": 2
+            "artistOpRate": 2,
+            "artistGenreID": 0
         },
         {
             "artistName": "Ample\r Offensive\r",
@@ -97,7 +107,8 @@
             "artistRating": 9,
             "artistGenre": "Trap\r",
             "artistOpinion": "Avoid this label. Their music is dreadful, and their artists lack originality.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Chubby\r Soredium\r",
@@ -106,7 +117,8 @@
             "artistRating": 6,
             "artistGenre": "House\r",
             "artistOpinion": "Avoid this label. Their music is a mess, and their artists are uninspiring.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Utter\r Sanity\r",
@@ -115,7 +127,8 @@
             "artistRating": 1,
             "artistGenre": "Trap\r",
             "artistOpinion": "Absolutely disappointing. Their music lacks originality, and their artists are forgettable.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Bossy\r Morbidness\r",
@@ -124,7 +137,8 @@
             "artistRating": 10,
             "artistGenre": "Pop\r",
             "artistOpinion": "I wouldn't recommend it. Their music lacks coherence, and their artists seem lost.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Big\r Icehouse\r",
@@ -133,7 +147,8 @@
             "artistRating": 4,
             "artistGenre": "Dubstep\r",
             "artistOpinion": "Average label. They've got a few good tracks, but overall lacks consistency.",
-            "artistOpRate": 4
+            "artistOpRate": 4,
+            "artistGenreID": 0
         },
         {
             "artistName": "Noisy\r Pianissimo\r",
@@ -142,7 +157,8 @@
             "artistRating": 10,
             "artistGenre": "Grunge\r",
             "artistOpinion": "Avoid at all costs. Their music is a complete disaster, and their artists have no potential.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Pitiful\r Man-hour\r",
@@ -151,7 +167,8 @@
             "artistRating": 9,
             "artistGenre": "Trap\r",
             "artistOpinion": "Complete disappointment. Their music lacks direction, and their artists are forgettable.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         }
     ],
     "artistListOwned": [
@@ -162,7 +179,8 @@
             "artistRating": 1,
             "artistGenre": "Trap\r",
             "artistOpinion": "Truly abysmal. Their music is an assault on the senses, and their artists are woefully untalented.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         },
         {
             "artistName": "Concrete\r Counterplot\r",
@@ -171,7 +189,8 @@
             "artistRating": 3,
             "artistGenre": "Metal\r",
             "artistOpinion": "Promising label. They have moments of brilliance, but they need more consistent hits.",
-            "artistOpRate": 5
+            "artistOpRate": 5,
+            "artistGenreID": 0
         },
         {
             "artistName": "Pointless\r Wheelie\r",
@@ -180,7 +199,8 @@
             "artistRating": 7,
             "artistGenre": "Techno\r",
             "artistOpinion": "Mediocre at best. Their music is passable, but lacks innovation and creativity.",
-            "artistOpRate": 5
+            "artistOpRate": 5,
+            "artistGenreID": 0
         }
     ],
     "artistListRefused": [
@@ -191,11 +211,17 @@
             "artistRating": 1,
             "artistGenre": "Metal\r",
             "artistOpinion": "A monumental disaster. Their music is a monument to incompetence, and their artists are a sad joke.",
-            "artistOpRate": 1
+            "artistOpRate": 1,
+            "artistGenreID": 0
         }
+    ],
+    "techListOwned": [
+        1,
+        4
     ],
     "moneyOnHand": "215489.70",
     "isNewGame": false,
     "reputation": 1,
-    "labelName": "sadad"
+    "labelName": "sadad",
+    "xp": "50000"
 }

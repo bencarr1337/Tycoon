@@ -12,13 +12,14 @@ public class officeManager : MonoBehaviour
     public Text labelName;
     public Text reputation;
     public Transform moneyParentObject;
-    
+    public Transform xpParentObject;
     void Start()
     {
         Text moneyText = moneyParentObject.GetComponentInChildren<Text>();
         moneyText.text = stateManager.moneyOnHand.ToString();
 
-
+        Text xpText = xpParentObject.GetComponentInChildren<Text>();
+        xpText.text = stateManager.xp.ToString();
     }
 
     // Update is called once per frame
@@ -29,6 +30,9 @@ public class officeManager : MonoBehaviour
 
         labelName.text = stateManager.labelName;
         reputation.text = "Rep: "+stateManager.reputation.ToString();
+
+        Text xpText = xpParentObject.GetComponentInChildren<Text>();
+        xpText.text = stateManager.xp.ToString();
 
     }
 

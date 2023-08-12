@@ -25,11 +25,13 @@ public class RatingList
 [System.Serializable]
 public class techResearch
 {
-    //these variables are case sensitive and must match the strings "firstName" and "lastName" in the JSON.
+
+    public int id;
     public string name;
     public string description;
     public int[] applicable_genres;
     public string category;
+    public string cost;
 
 
 
@@ -43,6 +45,8 @@ public class techResearchList
 {
     public techResearch[] techniques;
 }
+
+
 
 
 
@@ -71,11 +75,12 @@ public class serializedGameState
     public List<artist> artistList = new List<artist>();
     public List<artist> artistListOwned = new List<artist>();
     public List<artist> artistListRefused = new List<artist>();
-
+    public List<int> techListOwned = new List<int>();
     public string moneyOnHand;
     public bool isNewGame;
     public int reputation;
     public string labelName;
+    public string xp;
 }
 
 [System.Serializable]
@@ -106,13 +111,18 @@ public class stateManager : MonoBehaviour
         set;
     }
 
+    public static List<int> techListOwned
+    {
+        get;
+        set;
+    }
 
- 
+
+
 
     public static List<artist> artistList = new List<artist>();
     public static List<artist> artistListOwned = new List<artist>();
     public static List<artist> artistListRefused = new List<artist>();
-    public static List<techResearchList> techListOwned = new List<techResearchList>();
     public static decimal moneyOnHand;
     public static bool isNewGame;
     public TextAsset ratingJson;
@@ -123,6 +133,7 @@ public class stateManager : MonoBehaviour
     public static string labelName;
     public static bool isLoadGame;
     public static bool endWeekModalShowing = false;
+    public static decimal xp;
 
     public void exitToMainMenu()
     {
@@ -134,9 +145,9 @@ public class stateManager : MonoBehaviour
     public void loadGame()
     {
 
-  
 
 
+        techListOwned = new List<int>();
 
         techList = new techResearchList();
 
@@ -173,7 +184,8 @@ public class stateManager : MonoBehaviour
        labelName=serializedGame.labelName;
        isNewGame = false;
        moneyOnHand  = decimal.Parse(serializedGame.moneyOnHand);
-       reputation = serializedGame.reputation;
+        xp = decimal.Parse(serializedGame.xp);
+        reputation = serializedGame.reputation;
 
         int i;
 
@@ -199,6 +211,14 @@ public class stateManager : MonoBehaviour
         {
 
           artistListRefused.Add(serializedGame.artistListRefused[i]);
+
+        }
+
+
+        for (i = 0; i < serializedGame.techListOwned.Count; i++)
+        {
+
+            techListOwned.Add(serializedGame.techListOwned[i]);
 
         }
 
@@ -235,13 +255,20 @@ public class stateManager : MonoBehaviour
 
         }
 
+        for (i = 0; i < techListOwned.Count; i++)
+        {
+
+            serializedGameSave.techListOwned.Add(techListOwned[i]);
+
+        }
+
         serializedGameSave.isNewGame = false;
         serializedGameSave.moneyOnHand = moneyOnHand.ToString();
         serializedGameSave.reputation = reputation;
         serializedGameSave.labelName = labelName;
+        serializedGameSave.xp = xp.ToString();
 
-       
-        
+
 
         string json = JsonUtility.ToJson(serializedGameSave, true);
 
@@ -280,7 +307,7 @@ public class stateManager : MonoBehaviour
         isNewGame = false;
 
         moneyOnHand = 500000.32m;
-
+        xp = 50000.00m;
         reputation = 1;
 
         var nounFile = Resources.Load<TextAsset>("Wordlists/nouns");
@@ -302,6 +329,7 @@ public class stateManager : MonoBehaviour
         artistList.Clear();
         artistListOwned.Clear();
         artistListRefused.Clear();
+        techListOwned.Clear();
 
 
         GenreList = new genreList();
