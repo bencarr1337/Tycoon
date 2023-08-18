@@ -3,28 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class cityView : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool modalShowing;
+
+   
     void Start()
     {
         
         GameObject.Find("FinishWorkWeekModal").transform.localScale = new Vector3(0, 0, 0);
-    
-    
+        GameObject.Find("FinishWorkWeekModalNext").transform.localScale = new Vector3(0, 0, 0);
+        GameObject.Find("FinishWorkWeekModalNews").transform.localScale = new Vector3(0, 0, 0);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    
+
     }
+
+  
 
     public void finishWorkWeekClick()
     {
-        stateManager.endWeekModalShowing = false;
-        GameObject.Find("FinishWorkWeekModal").transform.localScale = new Vector3(0, 0, 0);
+        stateManager.endWeekModalShowing = true;
+   
+     
+     
+       
 
     }
 
@@ -34,12 +46,13 @@ public class cityView : MonoBehaviour
         GameObject.Find("FinishWorkWeekModal").transform.localScale = new Vector3(0, 0, 0);
     }
 
+
     void OnMouseDown()
     {
         
       
 
-        if (gameObject.name == "buildingApartment")
+        if (gameObject.name == "buildingApartment" && stateManager.endWeekModalShowing == false)
 
         {
             stateManager.endWeekModalShowing = true;
@@ -66,7 +79,7 @@ public class cityView : MonoBehaviour
 
 
         }
-        Debug.Log(gameObject.name);
+    
         if (gameObject.name == "buildingStudio" && stateManager.endWeekModalShowing == false)
         {
            

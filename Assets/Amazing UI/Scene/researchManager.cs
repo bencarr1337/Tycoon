@@ -23,80 +23,90 @@ public class researchManager : MonoBehaviour
 
         techIndex = 0;
 
-        for (int i = 0; i < stateManager.techList.techniques.Length; i++)
-        {
-            Vector3 randomPos = new Vector3(0, 0, 0f);
-
-         
-
-
-
-            if (stateManager.techList.techniques[i].category == "technology")
-            {
-
-                Instantiate(prefabTechnology, randomPos, Quaternion.identity, parentObjectTechnology);
-               
-
-            }
-
-            if (stateManager.techList.techniques[i].category == "technique")
-            {
-
-                Instantiate(prefabTechnique, randomPos, Quaternion.identity, parentObjectTechnology);
-                
-            }
-
-        }
-
-
-            
-
-        Button[] buttons = parentObjectTechnology.GetComponentsInChildren<Button>();
-        Text[] textBoxes = parentObjectTechnology.GetComponentsInChildren<Text>();
-
-        foreach (Text textBox in textBoxes)
-        {
-            if (textBox.name == "Text_Name")
-            {
-
-                if (!checkIfOwned(stateManager.techList.techniques[techIndex].id))
-                {
-
-                    //Debug.Log(stateManager.artistList[artistIndex].artistName);
-                    textBox.text = stateManager.techList.techniques[techIndex].name;
-
-                }
-                else
-                {
-
-                    textBox.color = new Color32(7, 157, 0, 255);
-                    textBox.text = "[Owned] "+ stateManager.techList.techniques[techIndex].name;
-
-                }
-                techIndex++;
-            }
-
-
-
-        }
-
-        int x = 0;
-        foreach (Button button in buttons)
-        {
-
-           
-
-                ListenerHandler(button, x);
-
-           
-
-            x++;
-        }
 
 
 
     }
 
+
+    private void  populateList()
+    {
+
+        if (stateManager.techList is not null)
+        {
+            for (int i = 0; i < stateManager.techList.techniques.Length; i++)
+            {
+                Vector3 randomPos = new Vector3(0, 0, 0f);
+
+
+
+
+
+                if (stateManager.techList.techniques[i].category == "technology")
+                {
+
+                    Instantiate(prefabTechnology, randomPos, Quaternion.identity, parentObjectTechnology);
+
+
+                }
+
+                if (stateManager.techList.techniques[i].category == "technique")
+                {
+
+                    Instantiate(prefabTechnique, randomPos, Quaternion.identity, parentObjectTechnology);
+
+                }
+
+            }
+
+
+
+
+            Button[] buttons = parentObjectTechnology.GetComponentsInChildren<Button>();
+            Text[] textBoxes = parentObjectTechnology.GetComponentsInChildren<Text>();
+
+            foreach (Text textBox in textBoxes)
+            {
+                if (textBox.name == "Text_Name")
+                {
+
+                    if (!checkIfOwned(stateManager.techList.techniques[techIndex].id))
+                    {
+
+                        //Debug.Log(stateManager.artistList[artistIndex].artistName);
+                        textBox.text = stateManager.techList.techniques[techIndex].name;
+
+                    }
+                    else
+                    {
+
+                        textBox.color = new Color32(7, 157, 0, 255);
+                        textBox.text = stateManager.techList.techniques[techIndex].name;
+
+                    }
+                    techIndex++;
+                }
+
+
+
+            }
+
+            int x = 0;
+            foreach (Button button in buttons)
+            {
+
+
+
+                ListenerHandler(button, x);
+
+
+
+                x++;
+            }
+
+        }
+
+    }
 
     private bool checkIfOwned(int id)
     {
@@ -131,7 +141,7 @@ public class researchManager : MonoBehaviour
     {
 
         bool error = false;
-        bool errorRefused = false;
+   
         string errorMessage = "";
 
         if (stateManager.techList.techniques[techIndex].category == "technology")
@@ -141,14 +151,69 @@ public class researchManager : MonoBehaviour
             {
                 stateManager.techListOwned.Add(stateManager.techList.techniques[techIndex].id);
 
-              
-                
+                stateManager.moneyOnHand = stateManager.moneyOnHand - decimal.Parse(stateManager.techList.techniques[techIndex].cost);
+
+            }
+            else
+            {
+
+                error = true;
+                errorMessage = "You cannot afford to do this";
 
             }
 
         }
 
-      
+
+        if (stateManager.techList.techniques[techIndex].category == "technique")
+        {
+
+            if (stateManager.xp >= decimal.Parse(stateManager.techList.techniques[techIndex].cost))
+            {
+                stateManager.techListOwned.Add(stateManager.techList.techniques[techIndex].id);
+
+                stateManager.xp = stateManager.xp - decimal.Parse(stateManager.techList.techniques[techIndex].cost);
+
+            }
+            else
+            {
+
+                error = true;
+                errorMessage = "You cannot afford to do this";
+
+            }
+
+        }
+
+
+        if (error == false)
+        {
+
+
+            for (int i = 0; i < stateManager.techList.techniques.Length; i++)
+            {
+
+                GameObject childObject = parentObjectTechnology.transform.GetChild(i).gameObject;
+                // Destroy the child GameObject
+                Destroy(childObject);
+
+            }
+
+            GameObject.Find("AcceptModalResearch").transform.localScale = new Vector3(0, 0, 0);
+
+            techIndex = 0;
+
+        }
+        else
+        {
+
+
+            acceptModalResearchName.text = stateManager.techList.techniques[techIndex].name + " \n\n" + errorMessage;
+
+
+        }
+
+
 
 
     }
@@ -172,7 +237,17 @@ public class researchManager : MonoBehaviour
 
         if (button.name == "itemTemplate")
         {
-            textTechName.text = stateManager.techList.techniques[index].name;
+
+            if (checkIfOwned(stateManager.techList.techniques[index].id))
+            {
+                textTechName.text ="[Owned] "+ stateManager.techList.techniques[index].name;
+            }
+            else
+            {
+
+                textTechName.text = stateManager.techList.techniques[index].name;
+            }
+           
             textTechDescription.text = stateManager.techList.techniques[index].description;
             string typeOfCost = "";
 
@@ -212,6 +287,13 @@ public class researchManager : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
-        
+
+        if (parentObjectTechnology.transform.childCount == 0)
+        {
+
+            populateList();
+
+        }
+
     }
 }

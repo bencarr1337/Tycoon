@@ -24,12 +24,28 @@ public class studioManager : MonoBehaviour
     public float remainingXP;
     float maxValue;
 
+    public Image producer;
+
     public Slider[] Sliders;
 
     public float MaximumTotal;
 
 
     public bool ReduceOthers;
+
+    public int producerIndex;
+    public int maxProducers;
+
+    public Text producerName;
+    public Text producerDescription;
+   
+
+    public static List<int> techListSelected
+    {
+        get;
+        set;
+    }
+
 
     void Reset()
     {
@@ -50,22 +66,51 @@ public class studioManager : MonoBehaviour
     void Start()
     {
 
+        producerIndex = 0;
+        maxProducers = 14;
+
         int artistIndex = 0;
+        int techIndex = 0;
         MaximumTotal = 2.0f;
+        techListSelected = new List<int>();
 
+        techListSelected.Clear();
 
+        Sprite producerSprite = Resources.Load<Sprite>("producerSprites/"+ producerIndex);
+        
+        producer.sprite = producerSprite;
 
-        for (int i = 0; i < stateManager.artistListOwned.Count; i++)
+        producerName.text = stateManager.ProducerList.producers[producerIndex].name;
+
+       string desc = stateManager.ProducerList.producers[producerIndex].description;
+
+        int genreID;
+        string strGenres = "";
+        
+
+        for (int i = 0; i < stateManager.ProducerList.producers[producerIndex].genres.Length; i++)
         {
-            Vector3 randomPos = new Vector3(0, 0, 0f);
-            Instantiate(prefabArtist, randomPos, Quaternion.identity, parentObject);
+            genreID = stateManager.ProducerList.producers[producerIndex].genres[i];
 
-            
+            strGenres += getGenreById(genreID)+ " ";
 
         }
 
+        producerDescription.text = desc +"\n\n" + "Genres: "+strGenres;
 
         for (int i = 0; i < stateManager.artistListOwned.Count; i++)
+            {
+                Vector3 randomPos = new Vector3(0, 0, 0f);
+                Instantiate(prefabArtist, randomPos, Quaternion.identity, parentObject);
+
+
+
+            }
+
+        
+
+
+        for (int i = 0; i < stateManager.techListOwned.Count; i++)
         {
             Vector3 randomPos = new Vector3(0, 0, 0f);
             Instantiate(prefab, randomPos, Quaternion.identity, parentObjectA);
@@ -74,7 +119,7 @@ public class studioManager : MonoBehaviour
 
         }
 
-        Debug.Log("asdas"+ stateManager.genList[4]);
+        
         genreDropDown.ClearOptions();
         if (stateManager.genList is not null)
         {
@@ -92,7 +137,7 @@ public class studioManager : MonoBehaviour
             if (textBox.name == "Text_ArtistName")
             {
 
-                //Debug.Log(stateManager.artistList[artistIndex].artistName);
+            
                 textBox.text = stateManager.artistListOwned[artistIndex].artistName;
                 artistIndex++;
             }
@@ -103,8 +148,48 @@ public class studioManager : MonoBehaviour
 
 
 
+        Toggle[] Toggles = parentObjectA.GetComponentsInChildren<Toggle>();
+        Text[] textBoxesA = parentObjectA.GetComponentsInChildren<Text>();
+
+
+
+        foreach (Text textBox in textBoxesA)
+        {
+            if (textBox.name == "Text_Name")
+            {
+
+              
+                var getTech = getTechByIndex(stateManager.techListOwned[techIndex]);
+                textBox.text = getTech.Item2;
+                techIndex++;
+            }
+
+
+
+
+        }
+
         int a = 0;
         int x = 0;
+
+        foreach (Toggle toggle in Toggles)
+        {
+
+            if (a == 2)
+            {
+                //  x++;
+                //   a = 0;
+            }
+
+            ListenerHandlerToggle(toggle, x);
+
+            x++;
+        }
+
+
+
+         a = 0;
+         x = 0;
         foreach (Button button in buttons)
         {
 
@@ -131,6 +216,41 @@ public class studioManager : MonoBehaviour
         sliderMastering.onValueChanged.AddListener(delegate { OnSliderValueChanged(); });
         sliderProduction.onValueChanged.AddListener(delegate { OnSliderValueChanged(); });
 
+    }
+
+
+
+    private string getGenreById(int id)
+    {
+        for (int i = 0; i < stateManager.GenreList.genres.Length; i++)
+        {
+
+            if (stateManager.GenreList.genres[i].id == id)
+            {
+
+                return stateManager.GenreList.genres[i].name;
+            }
+
+        }
+
+        return "";
+    }
+
+    private (int,string) getTechByIndex(int id)
+    {
+
+        for (int i = 0; i < stateManager.techList.techniques.Length; i++)
+        {
+
+            if (stateManager.techList.techniques[i].id == id)
+            {
+
+                return (stateManager.techList.techniques[i].id, stateManager.techList.techniques[i].name);
+
+            }
+        }
+
+        return (0, "");
     }
 
     private void OnSliderValueChanged()
@@ -169,7 +289,7 @@ public class studioManager : MonoBehaviour
 
          foreach (Image image in singleImage)
          {
-             Debug.Log(image.name);
+           
              image.color = new Color32(142, 208, 255,255);
 
          }
@@ -178,7 +298,7 @@ public class studioManager : MonoBehaviour
 
          foreach (Image image in albumImage)
          {
-             Debug.Log(image.name);
+            
              image.color = new Color32(32, 32, 32, 255);
 
          }
@@ -198,7 +318,7 @@ public class studioManager : MonoBehaviour
 
          foreach (Image image in singleImage)
          {
-             Debug.Log(image.name);
+        
              image.color = new Color32(32, 32, 32, 255);
 
          }
@@ -207,7 +327,7 @@ public class studioManager : MonoBehaviour
 
          foreach (Image image in albumImage)
          {
-             Debug.Log(image.name);
+       
 
              image.color = new Color32(142, 208, 255, 255);
          }
@@ -217,6 +337,45 @@ public class studioManager : MonoBehaviour
      }
 
 
+
+    private void ListenerHandlerToggle(Toggle toggle, int index)
+    {
+
+        toggle.onValueChanged.AddListener((isOn) => {
+            onToggle(isOn, index);
+        });
+    }
+
+
+    private void onToggle(bool isOn, int index)
+    {
+        var getTech = getTechByIndex(stateManager.techListOwned[index]);
+      
+
+       if (isOn)
+        {
+
+            techListSelected.Add(getTech.Item1);
+        }
+        else
+        {
+
+            techListSelected.Remove(getTech.Item1);
+        }
+
+    }
+
+    public void checkTechList()
+    {
+
+        for (int i = 0; i < techListSelected.Count; i++)
+        {
+
+       
+
+        }
+
+    }
 
     private void ListenerHandler(Button button, int index)
     {
@@ -266,7 +425,7 @@ public class studioManager : MonoBehaviour
 
             if (currentTotal > MaximumTotal)
             {
-                Debug.LogWarning("Total already greater than max at start!");
+             
 
                 if (ReduceOthers)
                 {
@@ -364,7 +523,82 @@ public class studioManager : MonoBehaviour
 
 
 
+    public void moveProducerRight()
+    {
 
+        producerIndex += 1;
+
+        if (producerIndex > maxProducers)
+        {
+            producerIndex = 0;
+        }
+
+        Sprite producerSprite = Resources.Load<Sprite>("producerSprites/" + producerIndex);
+
+        producer.sprite = producerSprite;
+
+        producerName.text = stateManager.ProducerList.producers[producerIndex].name;
+
+      
+
+
+
+        int genreID;
+        string strGenres = "";
+        string desc = stateManager.ProducerList.producers[producerIndex].description;
+
+        for (int i = 0; i < stateManager.ProducerList.producers[producerIndex].genres.Length; i++)
+        {
+            genreID = stateManager.ProducerList.producers[producerIndex].genres[i];
+
+            strGenres += getGenreById(genreID) + " ";
+
+        }
+
+        producerDescription.text = desc + "\n\n" + "Genres: " + strGenres;
+
+    }
+
+    public void moveProducerLeft()
+    {
+
+
+       
+        if (producerIndex == 0)
+        {
+            producerIndex = maxProducers;
+        }
+        else
+        {
+
+            producerIndex -= 1;
+        }
+
+        Debug.Log("prod index " + producerIndex);
+
+        Sprite producerSprite = Resources.Load<Sprite>("producerSprites/" + producerIndex);
+
+        producer.sprite = producerSprite;
+
+        producerName.text = stateManager.ProducerList.producers[producerIndex].name;
+
+        producerDescription.text = stateManager.ProducerList.producers[producerIndex].description;
+
+        int genreID;
+        string strGenres = "";
+        string desc = stateManager.ProducerList.producers[producerIndex].description;
+
+        for (int i = 0; i < stateManager.ProducerList.producers[producerIndex].genres.Length; i++)
+        {
+            genreID = stateManager.ProducerList.producers[producerIndex].genres[i];
+
+            strGenres += getGenreById(genreID) + " ";
+
+        }
+
+        producerDescription.text = desc + "\n\n" + "Genres: " + strGenres;
+
+    }
 
     public void exitToCity()
     {

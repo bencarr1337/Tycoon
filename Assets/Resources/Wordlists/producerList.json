@@ -1,0 +1,79 @@
+{
+  "producers": [
+    {
+      "name": "SonicBeat",
+      "description": "Creating electrifying beats that ignite the dance floor.",
+      "genres": [ 1, 5, 7, 9 ]
+    },
+    {
+      "name": "MelodyCraft",
+      "description": "Crafting melodies that tug at heartstrings and evoke emotions.",
+      "genres": [ 2, 6, 8, 11 ]
+    },
+    {
+      "name": "RhythmFusion",
+      "description": "Fusing rhythms from around the world to create a global sonic experience.",
+      "genres": [ 3, 10, 12, 14 ]
+    },
+    {
+      "name": "SynthWave",
+      "description": "Bringing back the nostalgic sounds of the '80s with a modern twist.",
+      "genres": [ 1, 5, 9, 13 ]
+    },
+    {
+      "name": "GrooveMaster",
+      "description": "Masters of the groove, making you move with infectious beats.",
+      "genres": [ 4, 7, 10, 15 ]
+    },
+    {
+      "name": "ChillVibes",
+      "description": "Creating laid-back vibes that transport you to a tranquil oasis.",
+      "genres": [ 6, 8, 11, 14 ]
+    },
+    {
+      "name": "EpicSonic",
+      "description": "Crafting epic soundscapes that take you on an otherworldly journey.",
+      "genres": [ 2, 9, 12, 16 ]
+    },
+    {
+      "name": "BassBender",
+      "description": "Bending basslines to create a seismic impact on the dancefloor.",
+      "genres": [ 1, 5, 7, 13 ]
+    },
+    {
+      "name": "SoulGrooves",
+      "description": "Infusing soulful melodies with irresistible grooves that move your heart and feet.",
+      "genres": [ 3, 6, 8, 15 ]
+    },
+    {
+      "name": "FunkMasters",
+      "description": "Masters of funk, bringing the funkadelic vibes to your speakers.",
+      "genres": [ 4, 10, 12, 17 ]
+    },
+    {
+      "name": "AmbientDreams",
+      "description": "Creating dreamy ambient soundscapes that transport you to another realm.",
+      "genres": [ 2, 6, 11, 16 ]
+    },
+    {
+      "name": "ElectroPulse",
+      "description": "Pulsating electro beats that make you feel the energy of the digital age.",
+      "genres": [ 1, 5, 9, 13 ]
+    },
+    {
+      "name": "GuitarWizard",
+      "description": "Wielding the guitar like a wizard, conjuring magical riffs and solos.",
+      "genres": [ 2, 7, 10, 14 ]
+    },
+    {
+      "name": "UrbanGrooves",
+      "description": "Infusing urban influences into groovy beats that make the city come alive.",
+      "genres": [ 3, 8, 12, 15 ]
+    },
+    {
+      "name": "MysticBeats",
+      "description": "Unveiling the mystical side of music through enchanting beats and melodies.",
+      "genres": [ 4, 6, 11, 16 ]
+    }
+  ]
+}
